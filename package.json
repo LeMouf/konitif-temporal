@@ -10,7 +10,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "private": true,
+  "private": false,
   "license": "PolyForm-Noncommercial-1.0.0",
   "type": "module",
   "main": "./dist/index.js",

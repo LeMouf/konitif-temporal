@@ -2,8 +2,8 @@
 
 Composable temporal foundation: clocks, transport, explicit-host scheduling,
 invalidation and generic history. No Workbench, UI, robot or browser adapter is
-required by the implementation. Public release preparation is in progress; the
-package remains publication-disabled until the release setup is completed.
+required by the implementation. The candidate for the first public release is
+`0.284.1`; publication has not yet been confirmed.
 
 The caller owns transport instances, media sources and history lifecycle. The
 package creates no shared product history. Workbench's historical imports re-export
@@ -85,5 +85,7 @@ TypeScript compiler are required; no tool is downloaded automatically.
 
 The publication workflow remains gated by `TEMPORAL_NPM_PUBLISH_ENABLED`, the
 `npm-release` environment, an exact version tag on main history, and release-input
-checks. The current private manifest refuses publication. Environment approval
-rules and npm trusted publishing must be configured separately before activation.
+checks. The manifest permits public publication; this is not evidence that a
+version has been published. Environment approval rules and npm trusted publishing
+must be configured separately before workflow activation. These workflow gates
+do not prevent an authorized maintainer from publishing directly with npm.
