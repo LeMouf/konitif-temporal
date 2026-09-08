@@ -46,7 +46,8 @@ for (const file of files.filter(file => file.endsWith('.map'))) {
   assert.ok(map.sourcesContent.every(source => typeof source === 'string'));
 }
 copyFileSync(join(root, 'tests/contracts.test.mjs'), join(consumer, 'contracts.test.mjs'));
-const contracts = run(process.execPath, ['contracts.test.mjs'], consumer);
+// The parsed report must not depend on Node's default reporter or terminal mode.
+const contracts = run(process.execPath, ['--test-reporter=tap', 'contracts.test.mjs'], consumer);
 assert.match(contracts, /# tests 19\b/);
 assert.match(contracts, /# pass 19\b/);
 assert.match(contracts, /# fail 0\b/);

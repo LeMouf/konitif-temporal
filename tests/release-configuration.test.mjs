@@ -4,6 +4,10 @@ import { readFileSync } from 'node:fs';
 
 const read = path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 
+test('archive verification explicitly selects the TAP format it parses', () => {
+  assert.match(read('scripts/verify-package.mjs'), /\['--test-reporter=tap', 'contracts\.test\.mjs'\]/);
+});
+
 test('standalone lock admits only the approved compiler and no runtime dependency', () => {
   const manifest = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
