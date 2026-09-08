@@ -76,6 +76,14 @@ They cover clock identity and cadence, transport continuity and failure atomicit
 immutable history, replay units and explicit-host scheduler lifecycle. They require
 an existing build and do not install dependencies or rebuild automatically.
 
-`tests/temporalDistribution.test.ts` builds into an isolated temporary consumer,
-then checks native Node ESM imports and TypeScript declarations using package
-resolution, without source aliases. This is not a registry publication test.
+`npm run verify:package` creates an offline npm archive and checks its exact file
+list and SHA-512 integrity. It runs the 19 ESM contracts and a TypeScript consumer
+against the extracted archive, without source aliases. Source maps include their
+source content. The evidence archive remains in a temporary directory reported by
+the command; nothing is published. An installed npm CLI, tar and the pinned
+TypeScript compiler are required; no tool is downloaded automatically.
+
+The publication workflow remains gated by `TEMPORAL_NPM_PUBLISH_ENABLED`, the
+`npm-release` environment, an exact version tag on main history, and release-input
+checks. The current private manifest refuses publication. Environment approval
+rules and npm trusted publishing must be configured separately before activation.
