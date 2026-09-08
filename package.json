@@ -1,0 +1,122 @@
+{
+  "name": "@konitif/temporal",
+  "version": "0.284.1",
+  "description": "Composable clocks, transport, scheduling and immutable history for application runtimes.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeMouf/konitif-temporal.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "private": true,
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./clock/clockTypes": {
+      "types": "./dist/clock/clockTypes.d.ts",
+      "import": "./dist/clock/clockTypes.js"
+    },
+    "./clock/rootClock": {
+      "types": "./dist/clock/rootClock.d.ts",
+      "import": "./dist/clock/rootClock.js"
+    },
+    "./clock/clockGraph": {
+      "types": "./dist/clock/clockGraph.d.ts",
+      "import": "./dist/clock/clockGraph.js"
+    },
+    "./clock/fixedStepClock": {
+      "types": "./dist/clock/fixedStepClock.d.ts",
+      "import": "./dist/clock/fixedStepClock.js"
+    },
+    "./clock/audioClock": {
+      "types": "./dist/clock/audioClock.d.ts",
+      "import": "./dist/clock/audioClock.js"
+    },
+    "./clock/videoClock": {
+      "types": "./dist/clock/videoClock.d.ts",
+      "import": "./dist/clock/videoClock.js"
+    },
+    "./transport/transportTypes": {
+      "types": "./dist/transport/transportTypes.d.ts",
+      "import": "./dist/transport/transportTypes.js"
+    },
+    "./transport/temporalTransport": {
+      "types": "./dist/transport/temporalTransport.d.ts",
+      "import": "./dist/transport/temporalTransport.js"
+    },
+    "./scheduler/frameBudget": {
+      "types": "./dist/scheduler/frameBudget.d.ts",
+      "import": "./dist/scheduler/frameBudget.js"
+    },
+    "./scheduler/temporalSchedulerCore": {
+      "types": "./dist/scheduler/temporalSchedulerCore.d.ts",
+      "import": "./dist/scheduler/temporalSchedulerCore.js"
+    },
+    "./invalidation/invalidationController": {
+      "types": "./dist/invalidation/invalidationController.d.ts",
+      "import": "./dist/invalidation/invalidationController.js"
+    },
+    "./history/temporalHistoryCore": {
+      "types": "./dist/history/temporalHistoryCore.d.ts",
+      "import": "./dist/history/temporalHistoryCore.js"
+    }
+  },
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/index.js.map",
+    "dist/clock/clockTypes.js",
+    "dist/clock/clockTypes.d.ts",
+    "dist/clock/clockTypes.js.map",
+    "dist/clock/rootClock.js",
+    "dist/clock/rootClock.d.ts",
+    "dist/clock/rootClock.js.map",
+    "dist/clock/clockGraph.js",
+    "dist/clock/clockGraph.d.ts",
+    "dist/clock/clockGraph.js.map",
+    "dist/clock/fixedStepClock.js",
+    "dist/clock/fixedStepClock.d.ts",
+    "dist/clock/fixedStepClock.js.map",
+    "dist/clock/audioClock.js",
+    "dist/clock/audioClock.d.ts",
+    "dist/clock/audioClock.js.map",
+    "dist/clock/videoClock.js",
+    "dist/clock/videoClock.d.ts",
+    "dist/clock/videoClock.js.map",
+    "dist/transport/transportTypes.js",
+    "dist/transport/transportTypes.d.ts",
+    "dist/transport/transportTypes.js.map",
+    "dist/transport/temporalTransport.js",
+    "dist/transport/temporalTransport.d.ts",
+    "dist/transport/temporalTransport.js.map",
+    "dist/scheduler/frameBudget.js",
+    "dist/scheduler/frameBudget.d.ts",
+    "dist/scheduler/frameBudget.js.map",
+    "dist/scheduler/temporalSchedulerCore.js",
+    "dist/scheduler/temporalSchedulerCore.d.ts",
+    "dist/scheduler/temporalSchedulerCore.js.map",
+    "dist/invalidation/invalidationController.js",
+    "dist/invalidation/invalidationController.d.ts",
+    "dist/invalidation/invalidationController.js.map",
+    "dist/history/temporalHistoryCore.js",
+    "dist/history/temporalHistoryCore.d.ts",
+    "dist/history/temporalHistoryCore.js.map"
+  ]
+}
