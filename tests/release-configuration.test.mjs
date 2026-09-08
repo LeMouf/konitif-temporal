@@ -11,7 +11,7 @@ test('archive verification explicitly selects the TAP format it parses', () => {
 test('standalone lock admits only the approved compiler and no runtime dependency', () => {
   const manifest = JSON.parse(read('package.json'));
   const lock = JSON.parse(read('package-lock.json'));
-  assert.equal(manifest.private, true);
+  assert.equal(manifest.private, false);
   assert.equal(manifest.dependencies, undefined);
   assert.deepEqual(manifest.devDependencies, { typescript: '5.9.3' });
   assert.deepEqual(Object.keys(lock.packages).sort(), ['', 'node_modules/typescript']);

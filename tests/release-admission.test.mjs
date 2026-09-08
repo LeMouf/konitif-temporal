@@ -10,12 +10,13 @@ const lock = read('package-lock.json');
 const env = { GITHUB_REPOSITORY: 'LeMouf/konitif-temporal', GITHUB_EVENT_NAME: 'push',
   GITHUB_REF: `refs/tags/v${manifest.version}` };
 
-test('current private manifest refuses publication even with a matching tag', () => {
-  assert.throws(() => assertReleaseInputs(policy, manifest, lock, env));
+test('private manifests still refuse publication even with a matching tag', () => {
+  assert.throws(() => assertReleaseInputs(policy, { ...manifest, private: true }, lock, env));
 });
 
 test('candidate public manifest admits only the exact release identity', () => {
-  const candidate = { ...manifest, private: false };
+  assert.equal(manifest.private, false);
+  const candidate = manifest;
   assert.doesNotThrow(() => assertReleaseInputs(policy, candidate, lock, env));
   for (const change of [{ GITHUB_REPOSITORY: 'LeMouf/foreign' },
     { GITHUB_EVENT_NAME: 'pull_request' }, { GITHUB_REF: 'refs/heads/main' },
