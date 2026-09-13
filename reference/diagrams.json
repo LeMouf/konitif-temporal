@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "package": "@konitif/temporal",
+  "diagrams": [
+    {
+      "id": "explicit-temporal-flow",
+      "title": "Explicit temporal coordination",
+      "kind": "boundary",
+      "summary": "Time sources remain supplied dependencies and are coordinated without becoming an implicit global clock.",
+      "nodes": [
+        {
+          "id": "provider",
+          "label": "Time source",
+          "description": "The consumer supplies a reading."
+        },
+        {
+          "id": "clock",
+          "label": "Clock adapter",
+          "description": "Identity, unit, and conversions are declared."
+        },
+        {
+          "id": "graph",
+          "label": "Graph",
+          "description": "Clocks are resolved and converted."
+        },
+        {
+          "id": "transport",
+          "label": "Transport",
+          "description": "Position and transitions are committed atomically.",
+          "tone": "runtime"
+        },
+        {
+          "id": "projection",
+          "label": "Consumable reading",
+          "description": "A host can project or record the snapshot.",
+          "tone": "observation"
+        }
+      ],
+      "edges": [
+        {
+          "from": "provider",
+          "to": "clock"
+        },
+        {
+          "from": "clock",
+          "to": "graph"
+        },
+        {
+          "from": "graph",
+          "to": "transport"
+        },
+        {
+          "from": "transport",
+          "to": "projection"
+        }
+      ],
+      "caption": "Converting units does not calibrate two independent physical sources."
+    }
+  ]
+}

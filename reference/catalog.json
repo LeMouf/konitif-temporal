@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "1.0.0",
+  "package": "@konitif/temporal",
+  "intent": "Compose temporal coordinates and their transport without creating an implicit product clock.",
+  "clusters": [
+    {
+      "id": "clocks",
+      "title": "Clocks and conversions",
+      "summary": "Explicit adapters and a conversion graph between temporal units.",
+      "authority": "Each adapter owns its reading; the graph owns their local resolution.",
+      "owns": [
+        "clock identities",
+        "explicit conversion"
+      ],
+      "doesNotOwn": [
+        "external calibration",
+        "global product time"
+      ],
+      "workflow": [
+        "Declare",
+        "Register",
+        "Read",
+        "Convert"
+      ],
+      "sources": [
+        "src/clock/"
+      ]
+    },
+    {
+      "id": "transport",
+      "title": "Transport",
+      "summary": "Atomic transitions for play, pause, seek, rate, and tick.",
+      "authority": "Local transport state.",
+      "owns": [
+        "position",
+        "playback state",
+        "rate"
+      ],
+      "doesNotOwn": [
+        "media",
+        "timeline UI"
+      ],
+      "workflow": [
+        "Read",
+        "Prepare",
+        "Validate",
+        "Commit",
+        "Notify"
+      ],
+      "sources": [
+        "src/transport/"
+      ]
+    },
+    {
+      "id": "scheduler-invalidation",
+      "title": "Scheduling and invalidation",
+      "summary": "Frame budgeting and coordination through an explicit scheduling host.",
+      "authority": "Local lifecycle of the consumer-supplied scheduler.",
+      "owns": [
+        "budget",
+        "scheduled requests"
+      ],
+      "doesNotOwn": [
+        "browser API",
+        "rendering policy"
+      ],
+      "workflow": [
+        "Budget",
+        "Schedule",
+        "Invalidate",
+        "Cancel"
+      ],
+      "sources": [
+        "src/scheduler/",
+        "src/invalidation/"
+      ]
+    },
+    {
+      "id": "history",
+      "title": "Immutable history",
+      "summary": "Admission and reading of detached, frozen values.",
+      "authority": "Local history created by the consumer.",
+      "owns": [
+        "admitted entries",
+        "local ordering"
+      ],
+      "doesNotOwn": [
+        "shared product history",
+        "replayed effect"
+      ],
+      "workflow": [
+        "Detach",
+        "Admit",
+        "Freeze",
+        "Read"
+      ],
+      "sources": [
+        "src/history/"
+      ]
+    }
+  ]
+}
