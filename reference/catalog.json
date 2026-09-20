@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "package": "@konitif/temporal",
-  "intent": "Compose temporal coordinates and their transport without creating an implicit product clock.",
+  "intent": "Compose temporal coordinates and their transport without creating an implicit global clock.",
   "clusters": [
     {
       "id": "clocks",
@@ -14,7 +14,7 @@
       ],
       "doesNotOwn": [
         "external calibration",
-        "global product time"
+        "global time authority"
       ],
       "workflow": [
         "Declare",
@@ -85,7 +85,7 @@
         "local ordering"
       ],
       "doesNotOwn": [
-        "shared product history",
+        "shared domain history",
         "replayed effect"
       ],
       "workflow": [

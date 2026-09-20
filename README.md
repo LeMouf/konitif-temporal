@@ -20,7 +20,7 @@ npm install @konitif/temporal
 ## Authority boundary
 
 Callers own clock providers, media sources, scheduler hosts and history
-lifecycle. This package does not create a product-wide clock, UI timeline,
+lifecycle. This package does not create an implicit global clock, temporal UI,
 browser adapter or shared history. Unit conversion aligns representations; it
 does not calibrate independent clocks or confirm an external effect.
 

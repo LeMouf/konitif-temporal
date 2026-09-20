@@ -1,6 +1,6 @@
 {
   "name": "@konitif/temporal",
-  "version": "0.284.2",
+  "version": "0.284.3",
   "description": "Composable clocks, transport, scheduling and immutable history for application runtimes.",
   "repository": {
     "type": "git",

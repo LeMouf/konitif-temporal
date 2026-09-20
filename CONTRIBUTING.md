@@ -13,5 +13,5 @@ npm test
 npm run verify:package
 ```
 
-Do not add browser scheduling defaults or product history to the package
+Do not add browser scheduling defaults or shared domain history to the package
 boundary. Follow `RELEASE.md` for publication.
