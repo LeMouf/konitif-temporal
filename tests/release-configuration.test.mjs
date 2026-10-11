@@ -36,6 +36,6 @@ test('build is standalone and CI does not authorize publication', () => {
   assert.match(workflow, /npm test/);
   assert.doesNotMatch(workflow, /id-token:|npm publish|secrets\./);
   const runtime = read('scripts/select-ci-runtime.sh');
-  assert.match(runtime, /24\.20\.0/);
+  assert.match(runtime, /node\/24\.\*\/x64\/bin/);
   assert.doesNotMatch(runtime, /curl|wget|npx|npm install/);
 });
